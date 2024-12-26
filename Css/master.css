@@ -1,94 +1,108 @@
 /* Start Global Rules */
 * {
-  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Ensure padding/border are included in width/height */
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 :root {
+  /* Define global variables for consistent theming */
   --main-color: #2196f3;
   --main-color-alt: #1787e0;
-  --main-transition: 0.3s;
+  --main-transition: 0.3s; /* Smooth transition timing */
   --main-padding-top: 100px;
   --main-padding-bottom: 100px;
   --section-background: #ececec;
 }
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
 }
+
 body {
-  font-family: "Cairo", sans-serif;
+  font-family: "Cairo", sans-serif; /* Set default font */
 }
+
 a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline from links */
 }
+
 ul {
-  list-style: none;
+  list-style: none; /* Remove bullet points from lists */
   margin: 0;
   padding: 0;
 }
+
 .container {
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
 }
-/* Small */
+
+/* Responsive widths for .container */
 @media (min-width: 768px) {
   .container {
     width: 750px;
   }
 }
-/* Medium */
 @media (min-width: 992px) {
   .container {
     width: 970px;
   }
 }
-/* Large */
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
   }
 }
-/* starting header */
+
+/* Start Header Styling */
 header {
   background-color: white;
-  box-shadow: 0 0 10px #ddd;
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    .logo {
-      color: var(--main-color);
-      height: 72px;
-      font-weight: bold;
-      font-size: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    ul {
-      display: flex;
-      li {
-        transition: var(--main-transition);
-      }
-      li > a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 72px;
-        position: relative;
-        color: black;
-        padding: 0 30px;
-        overflow: hidden;
-        font-size: 18px;
-        transition: var(--main-transition);
-      }
-    }
-  }
+  box-shadow: 0 0 10px #ddd; /* Add shadow below header */
 }
+
+header .container {
+  display: flex;
+  justify-content: space-between; /* Align logo and navigation */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header .container .logo {
+  color: var(--main-color); /* Logo color */
+  height: 72px;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header .container ul {
+  display: flex;
+}
+
+header .container ul li {
+  transition: var(--main-transition); /* Smooth hover effect */
+}
+
+header .container ul li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 72px;
+  position: relative;
+  color: black;
+  padding: 0 30px;
+  overflow: hidden;
+  font-size: 20px;
+  transition: var(--main-transition);
+}
+
+/* Add hover effect to links */
 header .container ul li > a::before {
   content: " ";
   background-color: var(--main-color);
@@ -104,9 +118,12 @@ header .container ul li > a:hover {
   background-color: #ddd;
   color: var(--main-color);
 }
+
 header .container ul li:hover > a::before {
-  left: 0;
+  left: 0; /* Animate the line under link */
 }
+
+/* Mobile responsive header */
 @media (max-width: 767px) {
   header .container .logo {
     width: 100%;
@@ -122,3 +139,110 @@ header .container ul li:hover > a::before {
     height: 40px;
   }
 }
+
+/* Start Landing Section */
+.landing {
+  position: relative;
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  background-color: var(--section-background);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: -60px;
+  transform: skewY(-4deg); /* Add slanted background */
+  transform-origin: top left;
+}
+
+.landing .container {
+  min-height: calc(100vh - 72px); /* Full screen height minus header */
+}
+
+.landing .text {
+  flex: 1;
+}
+
+.landing .container .text p {
+  max-width: 500px;
+  margin: 5px 0 0;
+  line-height: 1.7;
+  font-size: 20px;
+}
+
+/* Adjust text for smaller screens */
+@media (max-width: 767px) {
+  .landing .text h1 {
+    font-size: 22px;
+  }
+  .landing .container .text p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 991px) {
+  .landing .text {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .landing .container .text p {
+    margin: 10px auto;
+  }
+}
+
+/* Landing image styling */
+.image img {
+  width: 500px;
+  position: relative;
+  transition: var(--main-transition);
+  animation: up-down alternate-reverse 4s infinite ease-in; /* Smooth up and down animation */
+}
+
+/* Hide image on smaller screens */
+@media (max-width: 992px) {
+  .landing .image {
+    display: none;
+  }
+  .landing .image img {
+    display: none;
+  }
+}
+
+/* Animation for up-down movement */
+@keyframes up-down {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -40px; /* Move up */
+  }
+  100% {
+    top: 0;
+  }
+}
+
+/* Call-to-action button animation */
+.landing .container a {
+  bottom: 30px;
+}
+
+.landing .container a i {
+  animation: bouncing 1.5s infinite; /* Bouncing arrow */
+}
+
+@keyframes bouncing {
+  0%,
+  10%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  30%,
+  80% {
+    transform: translateY(-15px);
+  }
+}
+/* End Landing Section */
