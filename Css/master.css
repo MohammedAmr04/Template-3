@@ -89,7 +89,7 @@ header .container ul li {
   transition: var(--main-transition); /* Smooth hover effect */
 }
 
-header .container ul li > a {
+header .container > ul li > a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,3 +246,58 @@ header .container ul li:hover > a::before {
   }
 }
 /* End Landing Section */
+/* mega menu */
+.other:hover .mega-menu {
+  top: 73px;
+  opacity: 1;
+}
+.mega-menu {
+  top: 140px;
+  display: flex;
+  grid: 40px;
+  left: 50%;
+  background-color: white;
+  opacity: 0;
+  transition: var(--main-transition);
+  padding: 20px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.mega-menu img {
+  width: 500px;
+}
+
+header .container .mega-menu .links {
+  display: block;
+  width: 260px;
+}
+.mega-menu .links li {
+  color: var(--main-color);
+  cursor: pointer;
+  position: relative;
+}
+.mega-menu .links li:hover::before {
+  opacity: 1;
+}
+.mega-menu .links li a {
+  display: block;
+  padding: 15px 10px;
+}
+.mega-menu .links li a i {
+  margin-right: 10px;
+}
+.mega-menu .links li > a::before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #ddd;
+  opacity: 0;
+  transition: var(--main-transition);
+}
+.mega-menu .links li:not(:last-child) {
+  border-bottom: #eee solid 1px;
+}
