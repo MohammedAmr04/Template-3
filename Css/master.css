@@ -441,3 +441,25 @@ header .container .mega-menu .links {
     transform: translateX(-5px);
   }
 }
+#gallary {
+  background-color: var(--section-background);
+}
+#gallary .container .box {
+  box-shadow: 0 0 10px #ddd;
+  border: solid 10px white;
+  position: relative;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+#gallary .container .box:hover .image {
+  transform: scale(1.1) rotate(3deg);
+}
+
+#gallary .container .image {
+  width: 320px;
+  transition: var(--main-transition);
+}
+#gallary .container .image img {
+  width: 100%;
+  animation: none;
+}
