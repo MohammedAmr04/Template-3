@@ -40,6 +40,59 @@ ul {
   margin-right: auto;
 }
 
+/* global roles */
+.main-header {
+  text-align: center;
+  border: solid 1px black;
+  width: fit-content;
+  padding: 10px 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--main-transition);
+}
+.main-header::after,
+.main-header::before {
+  content: " ";
+  height: 15px;
+  width: 15px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--main-transition);
+}
+.main-header::before {
+  right: -30px;
+}
+.main-header::after {
+  left: -30px;
+}
+.main-header:hover {
+  border: none;
+  color: white;
+  background-color: var(--main-color);
+}
+.main-header:hover::after {
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  z-index: -1;
+  transform: translateY(0);
+  top: 0;
+}
+.main-header:hover::before {
+  right: 50%;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  z-index: -1;
+  transform: translateY(0);
+  top: 0;
+}
+
 /* Responsive widths for .container */
 @media (min-width: 768px) {
   .container {
@@ -250,6 +303,7 @@ header .container ul li:hover > a::before {
 .other:hover .mega-menu {
   top: 73px;
   opacity: 1;
+  z-index: 10;
 }
 .mega-menu {
   top: 140px;
@@ -261,7 +315,7 @@ header .container ul li:hover > a::before {
   transition: var(--main-transition);
   padding: 20px;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: -1;
 }
 .mega-menu img {
   width: 500px;
