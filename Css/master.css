@@ -46,9 +46,8 @@ ul {
   border: solid 1px black;
   width: fit-content;
   padding: 10px 20px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
+  position: relative;
   transition: var(--main-transition);
 }
 .main-header::after,
@@ -116,7 +115,7 @@ header {
   box-shadow: 0 0 10px #ddd; /* Add shadow below header */
 }
 
-header .container {
+header > .container {
   display: flex;
   justify-content: space-between; /* Align logo and navigation */
   align-items: center;
@@ -308,7 +307,7 @@ header .container ul li:hover > a::before {
 .mega-menu {
   top: 140px;
   display: flex;
-  grid: 40px;
+  gap: 40px;
   left: 50%;
   background-color: white;
   opacity: 0;
@@ -318,12 +317,12 @@ header .container ul li:hover > a::before {
   z-index: -1;
 }
 .mega-menu img {
-  width: 500px;
+  max-width: 400px;
 }
 
 header .container .mega-menu .links {
   display: block;
-  width: 260px;
+  max-width: 250px;
 }
 .mega-menu .links li {
   color: var(--main-color);
@@ -354,4 +353,91 @@ header .container .mega-menu .links {
 }
 .mega-menu .links li:not(:last-child) {
   border-bottom: #eee solid 1px;
+}
+@media (max-width: 767px) {
+  .mega-menu img {
+    display: none;
+  }
+  .other:hover .mega-menu {
+    top: 91px;
+  }
+}
+@media (max-width: 991px) {
+  .mega-menu img {
+    display: none;
+  }
+  .mega-menu {
+    gap: 0;
+  }
+}
+@media (max-width: 1200) {
+  .mega-menu div img {
+    width: 440px;
+  }
+  .mega-menu {
+    display: block;
+  }
+}
+/* articales */
+#articales .container .box {
+  width: 240px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  #articales .container .box {
+    margin: 20px auto;
+  }
+}
+#articales .container .box img {
+  width: 100%;
+}
+
+#articales .container .box .content {
+  padding: 10px 20px;
+  h3 {
+    font-size: 20px;
+    line-height: 1.2;
+    opacity: 0.8;
+  }
+  p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.5;
+  }
+}
+#articales .container .box .info {
+  padding: 15px 20px;
+  border-top: 1px solid #ddd;
+  position: relative;
+  i {
+    position: absolute;
+    right: 12px;
+    font-size: 20px;
+    color: var(--main-color-alt);
+    cursor: pointer;
+  }
+}
+#articales .container .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+#articales .container .box:hover .info i {
+  animation: arrow 0.7s linear infinite;
+}
+@keyframes arrow {
+  0%,
+  10%,
+  50%,
+  100% {
+    transform: translateX(0);
+  }
+  30%,
+  80% {
+    transform: translateX(-5px);
+  }
 }
