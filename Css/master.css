@@ -457,9 +457,147 @@ header .container .mega-menu .links {
 
 #gallary .container .image {
   width: 320px;
+  position: relative;
   transition: var(--main-transition);
+}
+#gallary .container .image::before {
+  content: "";
+  background-color: rgb(255 255 255 / 30%);
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 0;
+}
+#gallary .container .image:hover::before {
+  animation: flashing 0.7s infinite linear;
+  width: 200%;
+  height: 200%;
+}
+@keyframes flashing {
+  0%,
+  40%,
+  80% {
+    opacity: 0.5;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
 }
 #gallary .container .image img {
   width: 100%;
   animation: none;
+}
+
+/* features */
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.features .box {
+  width: 300px;
+  height: 600px;
+  box-shadow: 0 0 10px #ddd;
+  text-align: center;
+  margin: 0 auto;
+}
+.features .box img {
+  width: 100%;
+  height: 300px;
+}
+.features .box .img-holder {
+  position: relative;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.features .box .img-holder::after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: solid;
+  border-width: 0 0 120px 310px;
+  border-color: transparent transparent white transparent;
+  transition: var(--main-transition);
+}
+.features .box .img-holder::before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: var(--main-transition);
+}
+.quality .img-holder::before {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+.quality .img-holder:hover::after {
+  border-width: 0px 300px 120px 0;
+  border-color: transparent transparent white transparent;
+}
+.time .img-holder::before {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+.time .img-holder:hover::after {
+  border-width: 0px 300px 120px 0;
+  border-color: transparent transparent white transparent;
+}
+.passion .img-holder::before {
+  background-color: rgba(0, 0, 255, 0.2);
+}
+.passion .img-holder:hover::after {
+  border-width: 0px 300px 120px 0;
+  border-color: transparent transparent white transparent;
+}
+
+.features .box h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 15px 15px;
+  position: relative;
+  width: fit-content;
+}
+.features .box h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 2px;
+  background-color: black;
+  transition: var(--main-transition);
+}
+
+.features .box p {
+  font-size: 20px;
+  padding: 15px 0;
+  opacity: 0.5;
+  line-height: 1.7;
+}
+.features .box a {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 15px 20px;
+  border: solid 2px black;
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+.features .box:hover a {
+  color: white;
+  border: none;
+}
+.features .time:hover a {
+  background-color: green;
+}
+.features .quality:hover a {
+  background-color: red;
+}
+.features .passion:hover a {
+  background-color: blue;
 }
