@@ -817,3 +817,34 @@ header .container .mega-menu .links {
   background-color: #d5d5d5;
   transform: skewX(-30deg);
 }
+
+.our-skills .container .skills {
+  position: relative;
+  width: 100%;
+}
+.our-skills .container .skills .skill {
+  position: relative;
+}
+.our-skills .container .skills .skill h3 {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.our-skills .container .skills .skill h3 span {
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: var(--main-color);
+}
+.our-skills .container .skills .skill .the-progress {
+  background-color: #eee;
+  width: 100%;
+  height: 30px;
+}
+.our-skills .container .skills .skill .the-progress span {
+  background-color: var(--main-color);
+  height: 100%;
+  display: block;
+}
