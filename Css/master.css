@@ -738,3 +738,82 @@ header .container .mega-menu .links {
     padding: 0px 15px;
   }
 }
+
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+.services .box {
+  background-color: white;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  counter-increment: number;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+.services .box::before {
+  content: "";
+  background-color: var(--main-color);
+  height: 3px;
+  width: 0;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transition: var(--main-transition);
+  transform: translateX(-50%);
+}
+.services .box:hover::before {
+  width: 100%;
+}
+.services .box:hover {
+  transform: translateY(-10px);
+}
+.services .box i {
+  margin-top: 15px;
+  opacity: 0.5;
+  position: relative;
+  padding: 10px 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.services .box h3 {
+  margin: 0 auto;
+  width: fit-content;
+  padding: 10px 15px;
+  color: var(--main-color);
+  font-weight: 700;
+}
+.services .box .info {
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 15px;
+  text-align: right;
+}
+
+.services .box .info::before {
+  content: "0" counter(number);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #1787e0;
+  padding-right: 15px;
+}
+.services .box .info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 60px;
+  width: 50px;
+  height: 100%;
+  background-color: #d5d5d5;
+  transform: skewX(-30deg);
+}
