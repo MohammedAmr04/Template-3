@@ -860,6 +860,11 @@ header .container .mega-menu .links {
   width: 500px;
   margin-right: 40px;
 }
+@media (max-width: 992px) {
+  .work-steps .container > img {
+    display: none;
+  }
+}
 .work-steps .container .info .box img {
   width: 80px;
   margin-right: 30px;
@@ -898,18 +903,23 @@ header .container .mega-menu .links {
   font-size: 18px;
   line-height: 1.7;
 }
-.events .dots {
+.dots {
   position: absolute;
   background-image: url(/imgs/dots.png);
   width: 204px;
   height: 186px;
+  /* z-index: -2; */
 }
-.events .dots-up {
+.dots-up {
   right: 0;
   top: 100px;
 }
-.events .dots-down {
+.dots-down {
   bottom: 100px;
+}
+.events .container {
+  position: relative;
+  z-index: 1;
 }
 .events .container > img {
   max-width: 400px;
@@ -980,4 +990,101 @@ header .container .mega-menu .links {
   padding: 20px;
   cursor: pointer;
   transition: var(--main-transition);
+}
+.pricing {
+  background-color: var(--section-background);
+}
+.pricing .container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.pricing .box {
+  position: relative;
+  background-color: white;
+  text-align: center;
+  padding: 30px 0;
+  z-index: 1;
+  padding-bottom: 50px;
+  transition: var(--main-transition);
+  box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+}
+.pricing .box::after,
+.pricing .box::before {
+  content: " ";
+  background-color: #f6f6f6;
+  position: absolute;
+  width: 0;
+  z-index: -1;
+  height: 50%;
+  transition: 1s;
+}
+
+.pricing .box::after {
+  right: 0;
+  bottom: 0;
+}
+.pricing .box:hover::after {
+  width: 100%;
+}
+.pricing .box:hover::before {
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.pricing .box::before {
+  left: 0;
+  top: 0;
+}
+.pricing .box .title {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.pricing .box .price .amount {
+  display: block;
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--main-color);
+}
+.pricing .box .price .amount + span {
+  font-size: 16px;
+  color: #ccc;
+}
+.pricing .box img {
+  width: 60px;
+  margin-bottom: 30px;
+}
+.pricing .box ul {
+  text-align: left;
+  margin-top: 5px;
+}
+.pricing .box ul li {
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+}
+.pricing .box ul li:last-of-type {
+  margin-bottom: 30px;
+}
+.pricing .box ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--main-color);
+}
+.pricing .box a {
+  margin: 30px 0;
+  padding: 10px 15px;
+  color: var(--main-color);
+  border-radius: 5px;
+  font-weight: 700;
+  border: solid 2px var(--main-color);
+  transition: var(--main-transition);
+}
+
+.pricing .box a:hover {
+  background-color: var(--main-color);
+  color: white;
 }
