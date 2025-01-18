@@ -905,7 +905,7 @@ header .container .mega-menu .links {
 }
 .dots {
   position: absolute;
-  background-image: url(/imgs/dots.png);
+  background-image: url(imgs/dots.png);
   width: 204px;
   height: 186px;
   /* z-index: -2; */
@@ -1173,12 +1173,14 @@ header .container .mega-menu .links {
   margin-top: 10px;
 }
 .stats {
-  background-image: url(/imgs/stats.jpg);
+  background-image: url(imgs/stats.jpg);
+  z-index: 1;
 }
 .stats::before {
   content: "";
   position: absolute;
   top: 0;
+  z-index: -1;
   left: 0;
   width: 100%;
   height: 100%;
@@ -1212,7 +1214,7 @@ header .container .mega-menu .links {
 }
 
 .discount .image {
-  background-image: url(/imgs/discount-background1.jpg);
+  background-image: url(imgs/discount-background1.jpg);
   width: 50%;
   background-size: cover;
   text-align: center;
@@ -1244,10 +1246,10 @@ header .container .mega-menu .links {
 @keyframes change-background-image {
   0%,
   100% {
-    background-image: url(/imgs/discount-background1.jpg);
+    background-image: url(imgs/discount-background1.jpg);
   }
   50% {
-    background-image: url(/imgs/discount-background2.jpg);
+    background-image: url(imgs/discount-background2.jpg);
   }
 }
 .discount .image img {
